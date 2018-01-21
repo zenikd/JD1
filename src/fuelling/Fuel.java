@@ -9,7 +9,7 @@ public class Fuel {
 		this.typeFuel = typeFuel;
 	}
 	
-	public void decrement() {
+	synchronized public void decrement() {
 		volumeFuel--;
 	}
 	
