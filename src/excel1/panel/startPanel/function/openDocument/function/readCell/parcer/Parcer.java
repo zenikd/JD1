@@ -23,6 +23,7 @@ public class Parcer {
 		Pattern patternMinus = Pattern.compile("=[A-Z][0-9]{1,3}-[A-Z][0-9]{1,3}");
 		Pattern patternShare = Pattern.compile("=[A-Z][0-9]{1,3}/[A-Z][0-9]{1,3}");
 		Pattern patternMultiply = Pattern.compile("=[A-Z][0-9]{1,3}[*][A-Z][0-9]{1,3}");
+		Pattern patternLink = Pattern.compile("[A-Z][0-9]{1,3}");
 
 		if (patternMIN.matcher(formula).matches()) {
 			return MinFunction.getReadValue(formula, currentDocument);
@@ -40,6 +41,8 @@ public class Parcer {
 			return ShareFunction.getReadValue(formula, currentDocument);
 		} else if (patternMultiply.matcher(formula).matches()) {
 			return MultiplyFunction.getReadValue(formula, currentDocument);
+		} else if (patternLink.matcher(formula).matches()) {
+			return ParceLink.getReadValue(formula, currentDocument);
 		} 
 		return formula;
 	}
