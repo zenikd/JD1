@@ -4,7 +4,7 @@ import java.util.List;
 import carsAV.car.Car;
 
 public class NewCar implements IExecutor{
-	List<Car> listCar;
+	private List<Car> listCar;
 	public NewCar(List<Car> listCar) {
 		this.listCar = listCar;
 	}
